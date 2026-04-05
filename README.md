@@ -15,14 +15,14 @@ podman rm -f firefox-fedora
 Создаём новый контейнер Fedora 43 с пробросом Wayland:
 
 ```bash
-podman run -it --name firefox-fedora \
+podman run -it --name firefox-container \
   --network=host \
   --security-opt label=disable \
   --security-opt seccomp=unconfined \
   -e WAYLAND_DISPLAY=$WAYLAND_DISPLAY \
   -e XDG_RUNTIME_DIR=/tmp/runtime-host \
   -v $XDG_RUNTIME_DIR:/tmp/runtime-host \
-  fedora:43 bash
+  fedora:latest bash
 ```
 
 ---
